@@ -13,15 +13,19 @@ import processing.core.*;
 public class Hw10Main extends PApplet{
     
     public void setup(){
-      
+      background(0, 0, 0);
+      noFill();
     }
     
     public void settings(){
-      size(800, 800);  
+      size(800, 800, P3D);  
     }
     
     public void draw(){
-         
+      beginCamera();
+      camera();
+      rotate(-PI/6);
+      endCamera();
     }
     
     /**
@@ -29,6 +33,7 @@ public class Hw10Main extends PApplet{
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        PApplet.main(new String [] {"Hw10Main"});
     }
     
 }
