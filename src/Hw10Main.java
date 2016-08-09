@@ -12,7 +12,8 @@ import processing.core.*;
 
 public class Hw10Main extends PApplet{
     public float x, y, z;
-    public float 
+    public float w, h, d;
+    
     public void setup(){
       background(255, 255, 255);
       noFill();
