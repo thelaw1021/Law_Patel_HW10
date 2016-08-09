@@ -11,7 +11,8 @@
 import processing.core.*;
 
 public class Hw10Main extends PApplet{
-    
+    public float x, y, z;
+    public float 
     public void setup(){
       background(255, 255, 255);
       noFill();
@@ -25,6 +26,12 @@ public class Hw10Main extends PApplet{
       beginCamera();
       camera();      
       rotate(-PI/6);
+      pushMatrix();
+      translate(400, 400, 0);
+      rotate(PI/6);
+      noFill();
+      box(100, 100, 100);
+      popMatrix();
       endCamera();
     }
     
