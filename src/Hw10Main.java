@@ -13,7 +13,7 @@ import processing.core.*;
 public class Hw10Main extends PApplet{
     
     public void setup(){
-      background(0, 0, 0);
+      background(255, 255, 255);
       noFill();
     }
     
@@ -23,7 +23,7 @@ public class Hw10Main extends PApplet{
     
     public void draw(){
       beginCamera();
-      camera();
+      camera();      
       rotate(-PI/6);
       endCamera();
     }
