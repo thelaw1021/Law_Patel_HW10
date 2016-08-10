@@ -12,9 +12,13 @@ import processing.core.*;
 
 public class Hw10Main extends PApplet{
     
+    public Cube c = new Cube(this);
+    
     public void setup(){
       background(255, 255, 255);
       noFill();
+      c.setDimensions(100, 100, 100);
+      c.setFill(false);
     }
     
     public void settings(){
@@ -25,6 +29,7 @@ public class Hw10Main extends PApplet{
       beginCamera();
       camera();      
       rotate(-PI/6);
+      c.create();
       endCamera();
     }
     
