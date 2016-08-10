@@ -195,5 +195,25 @@ public class Cube {
         this.fill = fill;
     }
     
+    /**
+     * @param x set x
+     * @param y set y
+     * @param z set z
+     */
+    public void setCenter(float x, float y, float z){
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    }
     
+    /**
+     * @param w set width
+     * @param h set height
+     * @param d set depth
+     */
+    public void setDimensions(float w, float h, float d){
+        this.w = w;
+        this.h = h;
+        this.d = d;
+    }
 }
