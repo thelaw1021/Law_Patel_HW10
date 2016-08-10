@@ -13,6 +13,7 @@ public class Cube {
     private float w, h, d;
     private float rotation;
     private float red, green, blue;
+    private boolean fill;
     private PApplet p;
     
     public Cube(PApplet p){
@@ -40,6 +41,7 @@ public class Cube {
         this.red = red;
         this.green = green;
         this.blue = blue;
+        this.fill = false;
     }
     
     public void create(){
@@ -48,7 +50,10 @@ public class Cube {
         p.pushMatrix();
         p.translate(x, y, z);
         p.rotateY(rotation);
-        p.fill(red, green, blue);
+        if (isFill())
+            p.fill(red, green, blue);
+        else
+            p.noFill();
         p.box(w, h, d);
         p.popMatrix();
     }
@@ -57,8 +62,24 @@ public class Cube {
         p.pushMatrix();
         p.translate(x, y, z);
         p.rotateY(rotation);
-        p.fill(red, green, blue);
+        if (isFill())
+            p.fill(red, green, blue);
+        else
+            p.noFill();
         p.box(w, h, d);
+        p.popMatrix();
+    }
+    
+    public void create(float x, float y, float z, float rx, float ry, float rz){
+        p.pushMatrix();
+        p.translate(x, y, z);
+        p.rotateX(rx);
+        p.rotateY(ry);
+        p.rotateZ(rz);
+        if (isFill())
+            p.fill(red, green, blue);
+        else
+            p.noFill();
         p.popMatrix();
     }
 
@@ -158,6 +179,20 @@ public class Cube {
      */
     public void setBlue(float blue) {
         this.blue = blue;
+    }
+
+    /**
+     * @return the fill
+     */
+    public boolean isFill() {
+        return fill;
+    }
+
+    /**
+     * @param fill the fill to set
+     */
+    public void setFill(boolean fill) {
+        this.fill = fill;
     }
     
     
