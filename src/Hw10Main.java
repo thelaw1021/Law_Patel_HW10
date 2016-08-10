@@ -29,7 +29,6 @@ public class Hw10Main extends PApplet{
       beginCamera();
       camera();      
       rotate(-PI/6);
-      c.create();
       endCamera();
     }
     
