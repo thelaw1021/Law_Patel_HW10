@@ -35,7 +35,7 @@ public class Hw10Main extends PApplet{
       translate(400, 400, 0);
       rotate(PI/6);
       noFill();
-      box(100, 100, 100);
+      box(100, 200, 100);
       popMatrix();
       endCamera();
     }
