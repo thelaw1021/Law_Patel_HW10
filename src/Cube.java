@@ -47,6 +47,7 @@ public class Cube {
     public void create(){
         x = p.width/2;
         y = p.height/2;
+        z = 0;
         p.pushMatrix();
         p.translate(x, y, z);
         p.rotateY(rotation);
@@ -58,9 +59,12 @@ public class Cube {
         p.popMatrix();
     }
     
-    public void create(float x, float y, float z){
+    public void create(float x2, float y2, float z2){
+        x = p.width/2;
+        y = p.height/2;
+        z = 0;
         p.pushMatrix();
-        p.translate(x, y, z);
+        p.translate(x+x2, y+y2, z+z2);
         p.rotateY(rotation);
         if (isFill())
             p.fill(red, green, blue);
@@ -70,9 +74,12 @@ public class Cube {
         p.popMatrix();
     }
     
-    public void create(float x, float y, float z, float rx, float ry, float rz){
+    public void create(float x2, float y2, float z2, float rx, float ry, float rz){
+        x = p.width/2;
+        y = p.height/2;
+        z = 0;
         p.pushMatrix();
-        p.translate(x, y, z);
+        p.translate(x+x2, y+y2, z+z2);
         p.rotateX(rx);
         p.rotateY(ry);
         p.rotateZ(rz);
@@ -191,8 +198,15 @@ public class Cube {
     /**
      * @param fill the fill to set
      */
-    public void setFill(boolean fill) {
-        this.fill = fill;
+    public void setFill(float red, float green, float blue) {
+        this.fill = true;
+        this.red = red;
+        this.green = green;
+        this.blue = blue;
+    }
+    
+    public void noFill(){
+        this.fill = false;
     }
     
     /**
