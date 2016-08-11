@@ -30,14 +30,11 @@ public class Hw10Main extends PApplet{
     public void draw(){
       beginCamera();
       camera();      
-      rotate(-PI/6);
-      pushMatrix();
-      translate(400, 400, 0);
-      rotate(PI/6);
-      noFill();
-      box(100, 200, 100);
-      popMatrix();
+      c.create();
+      //c.setFill(true);
+      c.create(100, 100, -400);
       endCamera();
+      //c.setFill(false);
     }
     
     /**
