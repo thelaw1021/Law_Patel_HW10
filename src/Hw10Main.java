@@ -20,7 +20,7 @@ public class Hw10Main extends PApplet{
       background(255, 255, 255);
       noFill();
       c.setDimensions(100, 100, 100);
-      c.setFill(false);
+      c.noFill();
     }
     
     public void settings(){
