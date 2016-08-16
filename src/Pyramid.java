@@ -69,8 +69,52 @@ public class Pyramid {
     
     public void create(){
         if (x0 == 0 && y0 == 0 && z0 == 0){
-            
+            p.translate(p.width/2, p.height/2, 0);
+            if (isFill())
+                p.fill(red, green, blue);
+            else
+                p.noFill();
+            setPoints();
+        } else {
+            p.translate(x0, y0, z0);
+            if (isFill())
+                p.fill(red, green, blue);
+            else
+                p.noFill();
+            setPoints();
         }
+        p.beginShape(p.TRIANGLES);
+        p.vertex(x2, y2, z2);
+        p.vertex(x1, y1, z1);
+        p.vertex(x3, y3, z3);
+        p.vertex(x3, y3, z3);
+        p.vertex(x1, y1, z1);
+        p.vertex(x4, y4, z4);
+        p.vertex(x4, y4, z4);
+        p.vertex(x1, y1, z1);
+        p.vertex(x5, y5, z5);
+        p.vertex(x5, y5, z5);
+        p.vertex(x1, y1, z1);
+        p.vertex(x2, y2, z2);
+        p.endShape();
+    }
+    
+    private void setPoints(){
+        this.x1 = 0;
+        this.y1 = 0 - height;
+        this.z1 = 0;
+        this.x2 = 0 - width/2;
+        this.y2 = 0;
+        this.z2 = 0 - length/2;
+        this.x3 = 0 + width/2;
+        this.y3 = 0;
+        this.z3 = 0 - length/2;
+        this.x4 = 0 + width/2;
+        this.y4 = 0;
+        this.z4 = 0 + length/2;
+        this.x5 = 0 - width/2;
+        this.y5 = 0;
+        this.z5 = 0 + length/2;
     }
     
     /**
