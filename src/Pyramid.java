@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 import processing.core.*;
+import java.math.*;
 /**
  *
  * @author Jared
@@ -17,6 +18,7 @@ public class Pyramid {
     private float rx, ry, rz;
     private boolean fill;
     private PApplet p;
+    private double baseRadius;
     
     public Pyramid(PApplet p){
         this(p, 0, 0, 0, 10, 10, 10, false, 0, 0, 0, 0, 0, 0);
@@ -53,6 +55,7 @@ public class Pyramid {
         this.rx = rx;
         this.ry = ry;
         this.rz = rz;
+        setPoints();
     }
 
     public void setCoordinates(float x0, float y0, float z0){
@@ -65,6 +68,7 @@ public class Pyramid {
         this.length = length;
         this.width = width;
         this.height = height;
+        setPoints();
     }
     
     public void create(){
@@ -74,14 +78,12 @@ public class Pyramid {
                 p.fill(red, green, blue);
             else
                 p.noFill();
-            setPoints();
         } else {
             p.translate(x0, y0, z0);
             if (isFill())
                 p.fill(red, green, blue);
             else
                 p.noFill();
-            setPoints();
         }
         p.beginShape(p.TRIANGLES);
         p.vertex(x2, y2, z2);
@@ -97,6 +99,20 @@ public class Pyramid {
         p.vertex(x1, y1, z1);
         p.vertex(x2, y2, z2);
         p.endShape();
+    }
+    
+    public void rotateX(float radians){
+        this.rx = radians;
+        this.rz = radians;
+        
+        this.x2 = (float) (0 + baseRadius * Math.cos(1.25*Math.PI + (double) rx));
+        this.z2 = (float) (0 + baseRadius * Math.sin(1.25*Math.PI + (double) rz));
+        this.x3 = (float) (0 + baseRadius * Math.cos(1.75*Math.PI + (double) rx));
+        this.z3 = (float) (0 + baseRadius * Math.sin(1.75*Math.PI + (double) rz));
+        this.x4 = (float) (0 + baseRadius * Math.cos(.25*Math.PI + (double) rx));
+        this.z4 = (float) (0 + baseRadius * Math.sin(.25*Math.PI + (double) rz));
+        this.x5 = (float) (0 + baseRadius * Math.cos(.75*Math.PI + (double) rx));
+        this.z5 = (float) (0 + baseRadius * Math.sin(.75*Math.PI + (double) rz));
     }
     
     private void setPoints(){
@@ -115,6 +131,7 @@ public class Pyramid {
         this.x5 = 0 - width/2;
         this.y5 = 0;
         this.z5 = 0 + length/2;
+        this.baseRadius = Math.sqrt((double)((length/2)*(length/2) + (width/2) * (width/2)));
     }
     
     /**
