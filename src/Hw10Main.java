@@ -15,10 +15,13 @@ public class Hw10Main extends PApplet{
     public float w, h, d;
     
     public Cube c = new Cube(this);
+    public Pyramid pyramid = new Pyramid(this);
     
     public void setup(){
       background(255, 255, 255);
       noFill();
+      pyramid.setDimensions(100, 100, 100);
+      pyramid.setCoordinates(width/2, height/2+50, 0);
       c.setDimensions(100, 100, 100);
       c.noFill();
     }
@@ -32,7 +35,8 @@ public class Hw10Main extends PApplet{
       camera();      
       c.create();
       //c.setFill(true);
-      c.create(100, 100, -400);
+      //c.create(100, 100, -400);
+      pyramid.create();
       endCamera();
       //c.setFill(false);
     }
