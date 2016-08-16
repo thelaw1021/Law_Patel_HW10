@@ -13,6 +13,7 @@ import processing.core.*;
 public class Hw10Main extends PApplet{
     public float x, y, z;
     public float w, h, d;
+    public float degrees;
     
     public Cube c = new Cube(this);
     public Pyramid pyramid = new Pyramid(this);
@@ -24,6 +25,7 @@ public class Hw10Main extends PApplet{
       pyramid.setCoordinates(width/2, height/2+50, 0);
       c.setDimensions(100, 100, 100);
       c.noFill();
+      degrees = 0;
     }
     
     public void settings(){
@@ -31,14 +33,17 @@ public class Hw10Main extends PApplet{
     }
     
     public void draw(){
+      background(255, 255, 255);
       beginCamera();
       camera();      
       c.create();
       //c.setFill(true);
       //c.create(100, 100, -400);
       pyramid.create();
+      pyramid.rotateX(radians(degrees));
       endCamera();
       //c.setFill(false);
+      degrees += 5;
     }
     
     /**
