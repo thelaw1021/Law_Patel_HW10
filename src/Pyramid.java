@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 import processing.core.*;
-import java.math.*;
 /**
  *
  * @author Jared
@@ -86,6 +85,38 @@ public class Pyramid {
             else
                 p.noFill();
         }
+        p.rotateX(rx);
+        p.rotateY(ry);
+        p.rotateZ(rz);
+        
+        p.beginShape(p.TRIANGLES);
+        p.vertex(x2, y2, z2);
+        p.vertex(x1, y1, z1);
+        p.vertex(x3, y3, z3);
+        p.vertex(x3, y3, z3);
+        p.vertex(x1, y1, z1);
+        p.vertex(x4, y4, z4);
+        p.vertex(x4, y4, z4);
+        p.vertex(x1, y1, z1);
+        p.vertex(x5, y5, z5);
+        p.vertex(x5, y5, z5);
+        p.vertex(x1, y1, z1);
+        p.vertex(x2, y2, z2);
+        p.endShape();
+    }
+  
+    public void create(float x, float y, float z){
+        
+        p.translate(x0+x, y0+y, z0+z);
+        if (isFill())
+            p.fill(red, green, blue);
+        else
+            p.noFill();
+
+        p.rotateX(rx);
+        p.rotateY(ry);
+        p.rotateZ(rz);
+        
         p.beginShape(p.TRIANGLES);
         p.vertex(x2, y2, z2);
         p.vertex(x1, y1, z1);
@@ -102,54 +133,83 @@ public class Pyramid {
         p.endShape();
     }
     
-    public void rotateX(float radians){
-        this.rx = radians;
-        this.rz = radians;
+    public void create(float x, float y, float z, float rx, float ry, float rz){
         
-        this.x2 = (float) (0 + baseRadius * Math.cos(1.25*Math.PI + (double) rx));
-        this.z2 = (float) (0 + baseRadius * Math.sin(1.25*Math.PI + (double) rz));
-        this.x3 = (float) (0 + baseRadius * Math.cos(1.75*Math.PI + (double) rx));
-        this.z3 = (float) (0 + baseRadius * Math.sin(1.75*Math.PI + (double) rz));
-        this.x4 = (float) (0 + baseRadius * Math.cos(.25*Math.PI + (double) rx));
-        this.z4 = (float) (0 + baseRadius * Math.sin(.25*Math.PI + (double) rz));
-        this.x5 = (float) (0 + baseRadius * Math.cos(.75*Math.PI + (double) rx));
-        this.z5 = (float) (0 + baseRadius * Math.sin(.75*Math.PI + (double) rz));
+        p.translate(x0+x, y0+y, z0+z);
+        if (isFill())
+            p.fill(red, green, blue);
+        else
+            p.noFill();
+
+        p.rotateX(rx);
+        p.rotateY(ry);
+        p.rotateZ(rz);
+        
+        p.beginShape(p.TRIANGLES);
+        p.vertex(x2, y2, z2);
+        p.vertex(x1, y1, z1);
+        p.vertex(x3, y3, z3);
+        p.vertex(x3, y3, z3);
+        p.vertex(x1, y1, z1);
+        p.vertex(x4, y4, z4);
+        p.vertex(x4, y4, z4);
+        p.vertex(x1, y1, z1);
+        p.vertex(x5, y5, z5);
+        p.vertex(x5, y5, z5);
+        p.vertex(x1, y1, z1);
+        p.vertex(x2, y2, z2);
+        p.endShape();
     }
-    
-    public void rotateY(float radians){
-        this.ry = radians;
-        this.rz = radians;
         
-        this.y1 = (float) (0 + height * Math.cos(1.5*Math.PI + (double) ry));
-        this.z1 = (float) (0 + height * Math.sin(1.5*Math.PI + (double) rz));
-        this.y2 = (float) (0 + heightRadius * Math.cos(Math.PI + (double) ry));
-        this.z2 = (float) (0 + heightRadius * Math.sin(Math.PI + (double) rz));
-        this.y3 = (float) (0 + heightRadius * Math.cos(Math.PI + (double) ry));
-        this.z3 = (float) (0 + heightRadius * Math.sin(Math.PI + (double) rz));
-        this.y4 = (float) (0 + heightRadius * Math.cos((double) ry));
-        this.z4 = (float) (0 + heightRadius * Math.sin((double) rz));
-        this.y5 = (float) (0 + heightRadius * Math.cos((double) ry));
-        this.z5 = (float) (0 + heightRadius * Math.sin((double) rz));
-        
-//        this.y1 = (float) (y1*Math.cos((double) ry) - z1*Math.sin((double) ry));
-//        this.z1 = (float) (z1*Math.cos((double) ry) + y1*Math.sin((double) ry));
-    }
-    
-    public void rotateZ(float radians){
-        this.ry = radians;
-        this.rx = radians;        
-        
-        this.y1 = (float) (0 + height * Math.cos(1.5*Math.PI + (double) ry));
-        this.x1 = (float) (0 + height * Math.sin(1.5*Math.PI + (double) rx));
-        this.y2 = (float) (0 + heightRadius * Math.cos(Math.PI + (double) ry));
-        this.x2 = (float) (0 + heightRadius * Math.sin(Math.PI + (double) rx));
-        this.y3 = (float) (0 + heightRadius * Math.cos(Math.PI + (double) ry));
-        this.x3 = (float) (0 + heightRadius * Math.sin(Math.PI + (double) rx));
-        this.y4 = (float) (0 + heightRadius * Math.cos((double) ry));
-        this.x4 = (float) (0 + heightRadius * Math.sin((double) rx));
-        this.y5 = (float) (0 + heightRadius * Math.cos((double) ry));
-        this.x5 = (float) (0 + heightRadius * Math.sin((double) rx));
-    }
+    //3D Math Attempt - scrapped.  Here for assignment submission.
+//    public void rotateX(float radians){
+//        this.rx = radians;
+//        this.rz = radians;
+//        
+//        this.x2 = (float) (0 + baseRadius * Math.cos(1.25*Math.PI + (double) rx));
+//        this.z2 = (float) (0 + baseRadius * Math.sin(1.25*Math.PI + (double) rz));
+//        this.x3 = (float) (0 + baseRadius * Math.cos(1.75*Math.PI + (double) rx));
+//        this.z3 = (float) (0 + baseRadius * Math.sin(1.75*Math.PI + (double) rz));
+//        this.x4 = (float) (0 + baseRadius * Math.cos(.25*Math.PI + (double) rx));
+//        this.z4 = (float) (0 + baseRadius * Math.sin(.25*Math.PI + (double) rz));
+//        this.x5 = (float) (0 + baseRadius * Math.cos(.75*Math.PI + (double) rx));
+//        this.z5 = (float) (0 + baseRadius * Math.sin(.75*Math.PI + (double) rz));
+//    }
+//    
+//    public void rotateY(float radians){
+//        this.ry = radians;
+//        this.rz = radians;
+//        
+//        this.y1 = (float) (0 + height * Math.cos(1.5*Math.PI + (double) ry));
+//        this.z1 = (float) (0 + height * Math.sin(1.5*Math.PI + (double) rz));
+//        this.y2 = (float) (0 + heightRadius * Math.cos(Math.PI + (double) ry));
+//        this.z2 = (float) (0 + heightRadius * Math.sin(Math.PI + (double) rz));
+//        this.y3 = (float) (0 + heightRadius * Math.cos(Math.PI + (double) ry));
+//        this.z3 = (float) (0 + heightRadius * Math.sin(Math.PI + (double) rz));
+//        this.y4 = (float) (0 + heightRadius * Math.cos((double) ry));
+//        this.z4 = (float) (0 + heightRadius * Math.sin((double) rz));
+//        this.y5 = (float) (0 + heightRadius * Math.cos((double) ry));
+//        this.z5 = (float) (0 + heightRadius * Math.sin((double) rz));
+//        
+////        this.y1 = (float) (y1*Math.cos((double) ry) - z1*Math.sin((double) ry));
+////        this.z1 = (float) (z1*Math.cos((double) ry) + y1*Math.sin((double) ry));
+//    }
+//    
+//    public void rotateZ(float radians){
+//        this.ry = radians;
+//        this.rx = radians;        
+//        
+//        this.y1 = (float) (0 + height * Math.cos(1.5*Math.PI + (double) ry));
+//        this.x1 = (float) (0 + height * Math.sin(1.5*Math.PI + (double) rx));
+//        this.y2 = (float) (0 + heightRadius * Math.cos(Math.PI + (double) ry));
+//        this.x2 = (float) (0 + heightRadius * Math.sin(Math.PI + (double) rx));
+//        this.y3 = (float) (0 + heightRadius * Math.cos(Math.PI + (double) ry));
+//        this.x3 = (float) (0 + heightRadius * Math.sin(Math.PI + (double) rx));
+//        this.y4 = (float) (0 + heightRadius * Math.cos((double) ry));
+//        this.x4 = (float) (0 + heightRadius * Math.sin((double) rx));
+//        this.y5 = (float) (0 + heightRadius * Math.cos((double) ry));
+//        this.x5 = (float) (0 + heightRadius * Math.sin((double) rx));
+//    }
     
     private void setPoints(){
         this.x1 = 0;
