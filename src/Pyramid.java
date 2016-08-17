@@ -19,6 +19,7 @@ public class Pyramid {
     private boolean fill;
     private PApplet p;
     private double baseRadius;
+    private double heightRadius;
     
     public Pyramid(PApplet p){
         this(p, 0, 0, 0, 10, 10, 10, false, 0, 0, 0, 0, 0, 0);
@@ -115,6 +116,25 @@ public class Pyramid {
         this.z5 = (float) (0 + baseRadius * Math.sin(.75*Math.PI + (double) rz));
     }
     
+    public void rotateY(float radians){
+        this.ry = radians;
+        this.rz = radians;
+        
+        this.y1 = (float) (0 + height * Math.cos(1.5*Math.PI + (double) ry));
+        this.z1 = (float) (0 + height * Math.sin(1.5*Math.PI + (double) rz));
+//        this.y2 = (float) (0 + heightRadius * Math.cos(Math.PI + (double) ry));
+//        this.z2 = (float) (0 + heightRadius * Math.sin(Math.PI + (double) rz));
+//        this.y3 = (float) (0 + heightRadius * Math.cos(Math.PI + (double) ry));
+//        this.z3 = (float) (0 + heightRadius * Math.sin(Math.PI + (double) rz));
+//        this.y4 = (float) (0 + heightRadius * Math.cos((double) ry));
+//        this.z4 = (float) (0 + heightRadius * Math.sin((double) rz));
+//        this.y5 = (float) (0 + heightRadius * Math.cos((double) ry));
+//        this.z5 = (float) (0 + heightRadius * Math.sin((double) rz));
+        
+//        this.y1 = (float) (y1*Math.cos((double) ry) - z1*Math.sin((double) ry));
+//        this.z1 = (float) (z1*Math.cos((double) ry) + y1*Math.sin((double) ry));
+    }
+    
     private void setPoints(){
         this.x1 = 0;
         this.y1 = 0 - height;
@@ -132,6 +152,8 @@ public class Pyramid {
         this.y5 = 0;
         this.z5 = 0 + length/2;
         this.baseRadius = Math.sqrt((double)((length/2)*(length/2) + (width/2) * (width/2)));
+        //this.heightRadius = Math.sqrt((double) ((length/2)*(length/2) + (height*height)));
+        this.heightRadius = height;
     }
     
     /**
