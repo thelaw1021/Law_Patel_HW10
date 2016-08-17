@@ -15,32 +15,32 @@ public class Pyramid {
     private float length, width, height; //dimensions of the pyramid
     private float red, green, blue;
     private float rx, ry, rz;
-    private boolean fill;
+    private boolean fill, bottom;
     private PApplet p;
 //    private double baseRadius; //old code for 3d math rotations
 //    private double heightRadius;  //old code for 3d math rotations
     
     public Pyramid(PApplet p){
-        this(p, 0, 0, 0, 10, 10, 10, false, 0, 0, 0, 0, 0, 0);
+        this(p, 0, 0, 0, 10, 10, 10, false, 0, 0, 0, 0, 0, 0, false);
     }
     
     public Pyramid(PApplet p, float length, float width, float height){
-        this(p, 0, 0, 0, length, width, height, false, 0, 0, 0, 0, 0, 0);
+        this(p, 0, 0, 0, length, width, height, false, 0, 0, 0, 0, 0, 0, false);
     }
     
     public Pyramid(PApplet p, float x0, float y0, float z0, float length, float width, float height){
-        this(p, x0, y0, z0, length, width, height, false, 0, 0, 0, 0, 0, 0);
+        this(p, x0, y0, z0, length, width, height, false, 0, 0, 0, 0, 0, 0, false);
     }
     
-    public Pyramid(PApplet p, float x0, float y0, float z0, float length, float width, float height, boolean fill, float red, float green, float blue){
-        this(p, x0, y0, z0, length, width, height, fill, red, green, blue, 0, 0, 0);
+    public Pyramid(PApplet p, float x0, float y0, float z0, float length, float width, float height, boolean fill, float red, float green, float blue, boolean bottom){
+        this(p, x0, y0, z0, length, width, height, fill, red, green, blue, 0, 0, 0, bottom);
     }
     
-    public Pyramid(PApplet p, float x0, float y0, float z0, float length, float width, float height, float rx, float ry, float rz){
-        this(p, x0, y0, z0, length, width, height, false, 0, 0, 0, rx, ry, rz);
+    public Pyramid(PApplet p, float x0, float y0, float z0, float length, float width, float height, float rx, float ry, float rz, boolean bottom){
+        this(p, x0, y0, z0, length, width, height, false, 0, 0, 0, rx, ry, rz, bottom);
     }
     
-    public Pyramid(PApplet p, float x0, float y0, float z0, float length, float width, float height, boolean fill, float red, float green, float blue, float rx, float ry, float rz){
+    public Pyramid(PApplet p, float x0, float y0, float z0, float length, float width, float height, boolean fill, float red, float green, float blue, float rx, float ry, float rz, boolean bottom){
         this.p = p;
         this.x0 = x0;
         this.y0 = y0;
@@ -55,6 +55,7 @@ public class Pyramid {
         this.rx = rx;
         this.ry = ry;
         this.rz = rz;
+        this.bottom = bottom;
         setPoints();
     }
 
@@ -103,6 +104,14 @@ public class Pyramid {
         p.vertex(x1, y1, z1);
         p.vertex(x2, y2, z2);
         p.endShape();
+        if (hasBottom()){
+            p.beginShape(p.QUADS);
+            p.vertex(x2, y2, z2);
+            p.vertex(x3, y3, z3);
+            p.vertex(x4, y4, z4);
+            p.vertex(x5, y5, z5);
+            p.endShape();
+        }
     }
   
     public void create(float x, float y, float z){
@@ -131,6 +140,14 @@ public class Pyramid {
         p.vertex(x1, y1, z1);
         p.vertex(x2, y2, z2);
         p.endShape();
+        if (hasBottom()){
+            p.beginShape(p.QUADS);
+            p.vertex(x2, y2, z2);
+            p.vertex(x3, y3, z3);
+            p.vertex(x4, y4, z4);
+            p.vertex(x5, y5, z5);
+            p.endShape();
+        }
     }
     
     public void create(float x, float y, float z, float rx, float ry, float rz){
@@ -159,6 +176,14 @@ public class Pyramid {
         p.vertex(x1, y1, z1);
         p.vertex(x2, y2, z2);
         p.endShape();
+        if (hasBottom()){
+            p.beginShape(p.QUADS);
+            p.vertex(x2, y2, z2);
+            p.vertex(x3, y3, z3);
+            p.vertex(x4, y4, z4);
+            p.vertex(x5, y5, z5);
+            p.endShape();
+        }
     }
         
     //3D Math Attempt - scrapped.  Here for assignment submission.
@@ -475,6 +500,20 @@ public class Pyramid {
      */
     public void setY5(float y5) {
         this.y5 = y5;
+    }
+
+    /**
+     * @return the bottom
+     */
+    public boolean hasBottom() {
+        return bottom;
+    }
+
+    /**
+     * @param bottom the bottom to set
+     */
+    public void setBottom(boolean bottom) {
+        this.bottom = bottom;
     }
     
 }
