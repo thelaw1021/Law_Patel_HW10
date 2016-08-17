@@ -23,6 +23,7 @@ public class Hw10Main extends PApplet{
       noFill();
       pyramid.setDimensions(100, 100, 100);
       pyramid.setCoordinates(width/2, height/2+50, 0);
+      pyramid.setFill(150, 150, 150);
       c.setDimensions(100, 100, 100);
       c.noFill();
       degrees = 0;
@@ -45,8 +46,8 @@ public class Hw10Main extends PApplet{
       //c.setFill(true);
       c.create(100, 100, -400);
       pyramid.create();
-      //pyramid.rotateX(radians(degrees));
-      pyramid.rotateY(radians(degrees));
+      pyramid.rotateX(radians(degrees));
+      //pyramid.rotateY(radians(degrees));
       endCamera();
       //c.setFill(false);
       degrees += 1;
