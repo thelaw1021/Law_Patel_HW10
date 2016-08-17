@@ -17,8 +17,8 @@ public class Pyramid {
     private float rx, ry, rz;
     private boolean fill;
     private PApplet p;
-    private double baseRadius;
-    private double heightRadius;
+//    private double baseRadius; //old code for 3d math rotations
+//    private double heightRadius;  //old code for 3d math rotations
     
     public Pyramid(PApplet p){
         this(p, 0, 0, 0, 10, 10, 10, false, 0, 0, 0, 0, 0, 0);
