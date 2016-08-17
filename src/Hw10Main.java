@@ -37,13 +37,13 @@ public class Hw10Main extends PApplet{
       beginCamera();
       camera(width/2, height/2, (float)(height/2.0) / tan(PI*30 / 180), width/2, height/2, 0, 0, 1, 0); 
       //rotateX(radians(degrees));
-      c.create();
+      //c.create();
 //      pushMatrix();
 //      translate(width/2, height/2, 0);
 //      sphere(100);
 //      popMatrix();
       //c.setFill(true);
-      //c.create(100, 100, -400);
+      c.create(100, 100, -400);
       pyramid.create();
       //pyramid.rotateX(radians(degrees));
       pyramid.rotateY(radians(degrees));
