@@ -122,17 +122,33 @@ public class Pyramid {
         
         this.y1 = (float) (0 + height * Math.cos(1.5*Math.PI + (double) ry));
         this.z1 = (float) (0 + height * Math.sin(1.5*Math.PI + (double) rz));
-//        this.y2 = (float) (0 + heightRadius * Math.cos(Math.PI + (double) ry));
-//        this.z2 = (float) (0 + heightRadius * Math.sin(Math.PI + (double) rz));
-//        this.y3 = (float) (0 + heightRadius * Math.cos(Math.PI + (double) ry));
-//        this.z3 = (float) (0 + heightRadius * Math.sin(Math.PI + (double) rz));
-//        this.y4 = (float) (0 + heightRadius * Math.cos((double) ry));
-//        this.z4 = (float) (0 + heightRadius * Math.sin((double) rz));
-//        this.y5 = (float) (0 + heightRadius * Math.cos((double) ry));
-//        this.z5 = (float) (0 + heightRadius * Math.sin((double) rz));
+        this.y2 = (float) (0 + heightRadius * Math.cos(Math.PI + (double) ry));
+        this.z2 = (float) (0 + heightRadius * Math.sin(Math.PI + (double) rz));
+        this.y3 = (float) (0 + heightRadius * Math.cos(Math.PI + (double) ry));
+        this.z3 = (float) (0 + heightRadius * Math.sin(Math.PI + (double) rz));
+        this.y4 = (float) (0 + heightRadius * Math.cos((double) ry));
+        this.z4 = (float) (0 + heightRadius * Math.sin((double) rz));
+        this.y5 = (float) (0 + heightRadius * Math.cos((double) ry));
+        this.z5 = (float) (0 + heightRadius * Math.sin((double) rz));
         
 //        this.y1 = (float) (y1*Math.cos((double) ry) - z1*Math.sin((double) ry));
 //        this.z1 = (float) (z1*Math.cos((double) ry) + y1*Math.sin((double) ry));
+    }
+    
+    public void rotateZ(float radians){
+        this.ry = radians;
+        this.rx = radians;        
+        
+        this.y1 = (float) (0 + height * Math.cos(1.5*Math.PI + (double) ry));
+        this.x1 = (float) (0 + height * Math.sin(1.5*Math.PI + (double) rx));
+        this.y2 = (float) (0 + heightRadius * Math.cos(Math.PI + (double) ry));
+        this.x2 = (float) (0 + heightRadius * Math.sin(Math.PI + (double) rx));
+        this.y3 = (float) (0 + heightRadius * Math.cos(Math.PI + (double) ry));
+        this.x3 = (float) (0 + heightRadius * Math.sin(Math.PI + (double) rx));
+        this.y4 = (float) (0 + heightRadius * Math.cos((double) ry));
+        this.x4 = (float) (0 + heightRadius * Math.sin((double) rx));
+        this.y5 = (float) (0 + heightRadius * Math.cos((double) ry));
+        this.x5 = (float) (0 + heightRadius * Math.sin((double) rx));
     }
     
     private void setPoints(){
@@ -152,8 +168,8 @@ public class Pyramid {
         this.y5 = 0;
         this.z5 = 0 + length/2;
         this.baseRadius = Math.sqrt((double)((length/2)*(length/2) + (width/2) * (width/2)));
-        //this.heightRadius = Math.sqrt((double) ((length/2)*(length/2) + (height*height)));
-        this.heightRadius = height;
+        this.heightRadius = Math.sqrt((double) ((length/2)*(length/2) + ((height/2)*(height/2))));
+        //this.heightRadius = height;
     }
     
     /**
