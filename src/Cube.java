@@ -87,6 +87,7 @@ public class Cube {
             p.fill(red, green, blue);
         else
             p.noFill();
+        p.box(w, h, d);
         p.popMatrix();
     }
 
