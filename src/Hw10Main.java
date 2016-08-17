@@ -45,9 +45,11 @@ public class Hw10Main extends PApplet{
 //      popMatrix();
       //c.setFill(true);
       c.create(100, 100, -400);
+      c.create(-100, -100, -400);
       pyramid.create();
       pyramid.rotateX(radians(degrees));
       //pyramid.rotateY(radians(degrees));
+      //pyramid.rotateZ(radians(degrees));
       endCamera();
       //c.setFill(false);
       degrees += 1;
