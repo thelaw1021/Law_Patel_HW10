@@ -35,7 +35,8 @@ public class Hw10Main extends PApplet{
     public void draw(){
       background(255, 255, 255);
       beginCamera();
-      camera();      
+      camera(width/2, height/2, (float)(height/2.0) / tan(PI*30 / 180), width/2, height/2, 0, 0, 1, 0); 
+      //rotateX(radians(degrees));
       c.create();
 //      pushMatrix();
 //      translate(width/2, height/2, 0);
@@ -44,7 +45,8 @@ public class Hw10Main extends PApplet{
       //c.setFill(true);
       //c.create(100, 100, -400);
       pyramid.create();
-      pyramid.rotateX(radians(degrees));
+      //pyramid.rotateX(radians(degrees));
+      pyramid.rotateY(radians(degrees));
       endCamera();
       //c.setFill(false);
       degrees += 1;
