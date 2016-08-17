@@ -40,12 +40,12 @@ public class Hw10Main extends PApplet{
       //rotateX(radians(degrees));
       //c.create();
 //      pushMatrix();
-//      translate(width/2, height/2, 0);
+//      translate((float) (width*.25), height/4, -100);
 //      sphere(100);
 //      popMatrix();
       //c.setFill(true);
       c.create(100, 100, -400);
-      c.create(-100, -100, -400);
+      c.create(-100, -100, -400, radians(degrees), radians(degrees), radians(degrees));
       pyramid.create();
       pyramid.rotateX(radians(degrees));
       //pyramid.rotateY(radians(degrees));
