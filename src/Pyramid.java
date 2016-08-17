@@ -227,8 +227,8 @@ public class Pyramid {
         this.x5 = 0 - width/2;
         this.y5 = 0;
         this.z5 = 0 + length/2;
-        this.baseRadius = Math.sqrt((double)((length/2)*(length/2) + (width/2) * (width/2)));
-        this.heightRadius = Math.sqrt((double) ((length/2)*(length/2) + ((height/2)*(height/2))));
+        //this.baseRadius = Math.sqrt((double)((length/2)*(length/2) + (width/2) * (width/2)));
+        //this.heightRadius = Math.sqrt((double) ((length/2)*(length/2) + ((height/2)*(height/2))));
         //this.heightRadius = height;
     }
     
