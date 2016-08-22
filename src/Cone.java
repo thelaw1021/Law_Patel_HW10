@@ -56,9 +56,9 @@ public class Cone {
     }
     
     public void setCoordinates(float x, float y, float z){
-        this.x = x;
-        this.y = y;
-        this.z = z;
+        this.x0 = x;
+        this.y0 = y;
+        this.z0 = z;
     }
     
     public void fill(float red, float green, float blue){
